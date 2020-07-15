@@ -20,7 +20,7 @@ RUN unzip /home/webapp/1.0.0.zip
 #configure Footgo app and mysql db 
 ADD https://github.com/OlehZz/devops2/archive/master.zip /home/webapp/
 COPY ./sqlsetup.sh /home/webapp
-RUN unzip -j /home/webapp/master.zip "devops2-master/sqlsetup.sh" -d "/home/webapp"
+RUN unzip -jo /home/webapp/master.zip "devops2-master/sqlsetup.sh" -d "/home/webapp"
 # chmod +x /home/webapp/sqlsetup.sh
 RUN /home/webapp/sqlsetup.sh
 
@@ -33,4 +33,4 @@ WORKDIR /home/webapp/FootGo-release-1.0.0/target
 #run website
 EXPOSE 8080
 RUN service mysql start
-ENTRYPOINT [java", "-jar", "ROOT.war"]
+ENTRYPOINT ["java", "-jar", "ROOT.war"]
