@@ -14,11 +14,11 @@ RUN apt-get install -y mysql-server mysql-client
 ADD https://github.com/WiseHands/FootGo/archive/release/1.0.0.zip /home/webapp
 RUN apt-get install -y unzip && unzip /home/webapp/1.0.0.zip
 
-#configure footgo app
-RUN cp /home/webapp/FootGo-release-1.0.0/src/main/resources/application.properties.example /home/webapp/FootGo-release-1.0.0/src/main/resources/application.properties
-
-#configure mysql db
-ADD https://github.com/OlehZz/devops2/blob/master/sqlsetup.sh /home/webapp/
+#configure Footgo app and mysql db 
+ADD https://github.com/OlehZz/devops2/archive/master.zip /home/webapp/
+RUN unzip -j /home/webapp/master.zip devops2-master/sqlsetup.sh
+# chmod +x /home/webapp/sqlsetup.sh
+RUN echo ls /home/webapp
 RUN /home/webapp/sqlsetup.sh
 
 #create working app
