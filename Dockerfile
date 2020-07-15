@@ -32,5 +32,5 @@ WORKDIR /home/webapp/FootGo-release-1.0.0/target
 
 #run website
 EXPOSE 8080
-RUN service mysql start
-ENTRYPOINT ["java", "-jar", "ROOT.war"]
+#RUN service mysql start
+ENTRYPOINT service mysql start && java -jar ROOT.war
