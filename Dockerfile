@@ -16,13 +16,13 @@ RUN apt-get install -y unzip && unzip /home/webapp/1.0.0.zip
 
 #configure Footgo app and mysql db 
 ADD https://github.com/OlehZz/devops2/archive/master.zip /home/webapp/
-RUN unzip -j /home/webapp/master.zip devops2-master/sqlsetup.sh
+RUN unzip -j /home/webapp/master.zip "devops2-master/sqlsetup.sh" -d "/home/webapp"
 # chmod +x /home/webapp/sqlsetup.sh
-RUN echo ls /home/webapp
 RUN /home/webapp/sqlsetup.sh
 
 #create working app
-RUN mvn -f /home/webapp/FootGo-release-1.0.0/ package
+WORKDIR /home/webapp/FootGo-release-1.0.0/
+RUN mvn package
 
 # Set the working directory.
 WORKDIR /home/webapp/FootGo-release-1.0.0/target

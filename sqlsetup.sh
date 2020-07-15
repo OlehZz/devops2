@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cp '/home/webapp/FootGo-release-1.0.0/src/main/resources/application.properties.example' '/home/webapp/FootGo-release-1.0.0/src/main/resources/application.properties'
+cp /home/webapp/FootGo-release-1.0.0/src/main/resources/application.properties.example /home/webapp/FootGo-release-1.0.0/src/main/resources/application.properties
 
 echo "[mysqld]
 skip-grant-tables" >> /etc/mysql/my.cnf
