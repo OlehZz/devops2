@@ -9,4 +9,4 @@ echo '-- create the footgo database
 CREATE DATABASE footgo;' > /home/webapp/footgo.sql
 
 service mysql start
-mysql < /mysql/setup.sql
+mysql < /home/webapp/footgo.sql
